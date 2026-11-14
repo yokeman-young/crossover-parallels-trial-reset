@@ -34,7 +34,7 @@ launchd 监视器与可直接被 agent 执行的 skill。
 ## 安装
 
 ```bash
-git clone https://github.com/<you>/trial-reset-kit.git
+git clone https://github.com/yokeman-young/crossover-parallels-trial-reset.git
 cd trial-reset-kit
 pip install -e .
 trialreset --json doctor

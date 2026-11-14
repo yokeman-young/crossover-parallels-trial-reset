@@ -5,7 +5,7 @@ description: Reset the local trial state of CrossOver or Parallels Desktop on ma
 
 # Trial reset (macOS)
 
-Operate this repository: https://github.com/<owner>/crossover-parallels-trial-reset
+Operate this repository: https://github.com/yokeman-young/crossover-parallels-trial-reset
 
 ## When to use
 

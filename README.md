@@ -40,7 +40,7 @@ sessions, IPv6 name cache, cfprefsd).
 ## Install
 
 ```bash
-git clone https://github.com/<you>/trial-reset-kit.git
+git clone https://github.com/yokeman-young/crossover-parallels-trial-reset.git
 cd trial-reset-kit
 python3 -m venv .venv && . .venv/bin/activate
 pip install -e .
