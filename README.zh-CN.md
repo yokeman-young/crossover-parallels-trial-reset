@@ -67,6 +67,10 @@ trialreset block parallels            # 需要 sudo
 cp -R skills/trial-reset ~/.claude/skills/    # 或 ~/.dsh/skills/
 ```
 
+## 现状与路线图
+
+各适配器验证状态、已知缺口、以及厂商改动后的应对流程见 [ROADMAP.md](ROADMAP.md)。
+
 ## 局限
 
 - Parallels 的试用可能由账号/服务端判定，阻断只能让客户端拿不到结论，不改变厂商已知信息。

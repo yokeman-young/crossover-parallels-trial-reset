@@ -116,6 +116,10 @@ table + failure map). Install with `cp -R skills/trial-reset ~/.claude/skills/` 
 `AGENTS.md` is the contract (JSON surface, exit codes, assertion table, failure modes).
 Recipes in [docs/agent-usage.md](docs/agent-usage.md).
 
+## Status & roadmap
+
+Live status matrix, known gaps and the vendor-change playbook: [ROADMAP.md](ROADMAP.md).
+
 ## Limitations
 
 - Parallels may validate trials server-side; blocking endpoints prevents an authoritative
