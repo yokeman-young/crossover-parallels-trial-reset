@@ -4,8 +4,11 @@
    headless/agent context the call blocks forever. Use `pkill -f` instead (the kit does).
 2. **An agent that resets must never kill a live session.** `watch install` runs with `--quiet`
    and the reset path skips when the app is running.
-3. **cfprefsd caches.** Editing the plist file directly can be overwritten; go through
-   `defaults write/delete` (the kit does).
+3. **cfprefsd caches — `plutil` is not enough.** Editing the plist on disk with `plutil -replace`
+   is silently overwritten by the preference daemon on the next app launch (observed: expired date
+   reverted to the cached value). Use `defaults write <domain> <key> -date …`, or kill cfprefsd.
+   This is also how to *demo* an expired state: pause the watcher, `defaults write` an old date,
+   launch the original icon.
 4. **Dotted keys are not key paths.** `License.Flags` must be passed as one literal key name to
    `defaults`, not as nested `PlistBuddy` paths.
 5. **IPv6 name cache.** `dig` bypasses `/etc/hosts`; verify blocking with `ping`/`curl`, and
