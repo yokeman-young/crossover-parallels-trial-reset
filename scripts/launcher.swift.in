@@ -1,0 +1,32 @@
+import AppKit
+import Foundation
+
+let key = "__APP_KEY__"
+let launchScript = "__PYTHON__"
+let logPath = NSHomeDirectory() + "/.trialreset/\(key)/launcher.log"
+
+func note(_ message: String) {
+    let line = "\(ISO8601DateFormatter().string(from: Date())) \(message)\n"
+    try? FileManager.default.createDirectory(atPath: (logPath as NSString).deletingLastPathComponent,
+                                            withIntermediateDirectories: true)
+    if let fh = FileHandle(forWritingAtPath: logPath) {
+        fh.seekToEndOfFile(); fh.write(line.data(using: .utf8)!); try? fh.close()
+    } else {
+        FileManager.default.createFile(atPath: logPath, contents: line.data(using: .utf8))
+    }
+}
+
+let task = Process()
+task.executableURL = URL(fileURLWithPath: launchScript)
+task.arguments = ["-m", "trialreset.cli", "launch", key, "--json"]
+let pipe = Pipe()
+task.standardOutput = pipe
+task.standardError = pipe
+do {
+    try task.run()
+    task.waitUntilExit()
+    let data = pipe.fileHandleForReading.readDataToEndOfFile()
+    note("exit=\(task.terminationStatus) \(String(data: data, encoding: .utf8) ?? "")")
+} catch {
+    note("failed to launch reset: \(error)")
+}
