@@ -129,6 +129,16 @@ Live status matrix, known gaps and the vendor-change playbook: [ROADMAP.md](ROAD
 - Hosts blocking only covers name resolution; hard-coded IPs need a PF rule (documented).
 - macOS only. The adapter layer is deliberately thin so other platforms can be added later.
 
+## Privacy
+
+The repository contains no personal or machine-identifying data: adapters reference only app names,
+bundle identifiers and generic `~/Library/...` paths, and commits use a project identity. Runtime
+artifacts (preference backups, logs, `last-reset`) are written to `~/.trialreset/<app>/` outside the
+repo — do not commit them; `.gitignore` already excludes common build/run directories.
+
+If you file an issue, include `trialreset --json check <app>` with preference **keys** only, not
+values (values can contain licence blobs and hardware identifiers).
+
 ## Disclaimer
 
 For local interoperability testing on machines you own. No vendor binaries are redistributed.

@@ -71,6 +71,14 @@ cp -R skills/trial-reset ~/.claude/skills/    # 或 ~/.dsh/skills/
 
 各适配器验证状态、已知缺口、以及厂商改动后的应对流程见 [ROADMAP.md](ROADMAP.md)。
 
+## 脱敏
+
+仓库内不含任何个人或机器标识：适配器只引用应用名、bundle id 和通用的 `~/Library/...` 路径，
+提交使用项目身份。运行产物（偏好备份、日志、`last-reset`）写在仓库外的 `~/.trialreset/<app>/`，
+不要提交；`.gitignore` 已排除常见构建/运行目录。
+
+提 issue 时请附 `trialreset --json check <app>`，**只给键名，不要给键值**（值里可能含许可块和硬件标识）。
+
 ## 局限
 
 - Parallels 的试用可能由账号/服务端判定，阻断只能让客户端拿不到结论，不改变厂商已知信息。
