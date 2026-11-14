@@ -1,4 +1,9 @@
-# trial-reset-kit
+# crossover-parallels-trial-reset
+
+在 macOS 上于启动前重置 **CrossOver** 与 **Parallels Desktop** 的试用状态，带通用适配器层、
+launchd 监视器与可直接被 agent 执行的 skill。
+
+> `pip install -e .` → `trialreset`
 
 在 macOS 应用**启动之前**重置它的本地试用/许可状态，配一个 launchd 监视器兜底，再加可选的
 账号/许可域名阻断。
@@ -53,6 +58,14 @@ trialreset block parallels            # 需要 sudo
 
 在 `trialreset/adapters/` 加一个 `AppSpec`（见 [docs/adding-an-app.md](docs/adding-an-app.md)），
 注册到 `__init__.py`，立即出现在 `trialreset list` 里。
+
+## Agent skill
+
+`skills/trial-reset/SKILL.md` 是可直接安装的 skill（frontmatter + 步骤 + 断言表 + 失败处理）。
+
+```bash
+cp -R skills/trial-reset ~/.claude/skills/    # 或 ~/.dsh/skills/
+```
 
 ## 局限
 

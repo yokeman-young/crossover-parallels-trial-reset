@@ -1,4 +1,9 @@
-# trial-reset-kit
+# crossover-parallels-trial-reset
+
+Reset the local trial state of **CrossOver** and **Parallels Desktop** on macOS before they launch,
+with a generic adapter layer, a launchd watcher and an agent-executable skill.
+
+> `pip install -e .` → `trialreset`
 
 Reset the local trial/licence state of macOS desktop apps **before they launch**, with a
 launchd watcher as a safety net and optional network blocking for account/licence checks.
@@ -99,6 +104,12 @@ SPEC = AppSpec(
 Register it in `trialreset/adapters/__init__.py`. Then `trialreset list` shows it.
 
 Step-by-step in [docs/adding-an-app.md](docs/adding-an-app.md).
+
+## Agent skill
+
+`skills/trial-reset/SKILL.md` is a ready-to-install skill (frontmatter + procedure + assertion
+table + failure map). Install with `cp -R skills/trial-reset ~/.claude/skills/` (or
+`~/.dsh/skills/`), see [docs/skills.md](docs/skills.md).
 
 ## For agents
 
